@@ -1,0 +1,9 @@
+<div class = "stockContainer">
+    <div class = "stockList" ng-repeat = "stock in stocks">
+        {{stock.name}}
+        <button class = "myButton delete" ng-click = "deleteStock(stock.name, $index)">Delete</button>
+    </div>
+</div>
+
+<div id="chartContainer" class = "myGraph"></div>
+

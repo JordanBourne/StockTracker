@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app = "app">
+    <head>
+        <title>Stock Tracker</title>
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <script src="javascripts/includes/jquery-1.11.3.js"></script>
+        <script src='javascripts/includes/angular.min.js'></script>
+        <script src="javascripts/includes/angular-ui-router.js"></script>
+        <script src="javascripts/includes/canvasjs.min.js"></script>
+        <script src="javascripts/myscripts.js"></script> 
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    </head>
+    <body ng-controller = "MainCtrl">
+        <div class = "mainContent">
+            <h1> Stalk Finder </h1>
+            <p>Enter a name of a company or stock and we'll show you the stock history!</p>
+            <form ng-submit = "searchStock()" class = "theForm">
+                <input class = "myInput" type = "text" ng-model = "stockInput" placeholder = "Search for a stock"/>
+                <input class = "myButton submit" type = "submit">
+            </form>
+            {{error}}
+        </div>
+        
+        <ui-view></ui-view>
+    </body>
+</html>

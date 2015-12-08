@@ -52,6 +52,10 @@ p {
     cursor: pointer;
 }
 
+.myButton:focus {
+    outline: none;
+}
+
 .submit {
     color: green;
     font-size: 22px;

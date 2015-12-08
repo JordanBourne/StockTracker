@@ -25,7 +25,7 @@ app.config([
     }
 ]);
 
-app.factory('stocks', ['$http', function($http) {
+app.factory('stocks', ['$http', '$state', function($http, $state) {
     var o = {
         stocks: []
     };
@@ -37,7 +37,11 @@ app.factory('stocks', ['$http', function($http) {
                 if(data.name) {
                     o.stocks.push(data);
                 }
-                window.location.href = "#/stocks";
+                if($state.current.name == "stocks") {
+                    $state.go($state.current, {}, {reload: true});
+                } else {
+                    window.location.href = "#/stocks";
+                }
             });
         })
     }
@@ -71,6 +75,7 @@ app.controller('MainCtrl', [
                         window.location.href = "#/results";
                         $scope.stockInput = '';
                         $scope.result = '';
+                        $scope.error = '';
                     } else {
                         $scope.error = 'No stocks found called "' + $scope.stockInput + '"';
                         $scope.$apply();
@@ -84,7 +89,6 @@ app.controller('DataCtrl', [
     '$state',
     'stocks',
     function($scope, $state, stocks) {
-        //$scope.$apply();
         $scope.stocks = stocks.stocks;
         
         $scope.deleteStock = function(name) {

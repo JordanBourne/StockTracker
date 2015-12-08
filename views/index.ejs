@@ -12,13 +12,13 @@
     </head>
     <body ng-controller = "MainCtrl">
         <div class = "mainContent">
-            <h1> Stalk Finder </h1>
+            <h1> Stock Tracker </h1>
             <p>Enter a name of a company or stock and we'll show you the stock history!</p>
             <form ng-submit = "searchStock()" class = "theForm">
                 <input class = "myInput" type = "text" ng-model = "stockInput" placeholder = "Search for a stock"/>
                 <input class = "myButton submit" type = "submit">
+                {{error}}
             </form>
-            {{error}}
         </div>
         
         <ui-view></ui-view>
